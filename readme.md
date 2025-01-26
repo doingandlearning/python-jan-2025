@@ -1,6 +1,6 @@
 # Python Programming Course (Comprehensive Overview)
 
-- Dates: 12th-14th November 2024
+- Dates: 27th-29th January 2025 
 - Instructor: Kevin Cunningham
   - [Email](mailto:kevin@kevincunningham.co.uk)
   - [My website](https://kevincunningham.co.uk)
