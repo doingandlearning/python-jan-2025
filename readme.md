@@ -4,9 +4,9 @@
 - Instructor: Kevin Cunningham
   - [Email](mailto:kevin@kevincunningham.co.uk)
   - [My website](https://kevincunningham.co.uk)
-- [Repo link](https://github.com/doingandlearning/bbc-python-nov-2024)
-- [Miro link](https://miro.com/app/board/uXjVLGpFEMI=/?share_link_id=462605332283)
-- [Feedback link](https://forms.microsoft.com/e/6SY8kexWvT)
+- [Repo link](https://github.com/doingandlearning/python-jan-2025)
+- [Miro link](https://miro.com/app/board/uXjVLoEX_4s=/?share_link_id=272826220300)
+- [Feedback link]()
 
 ## Timings:
 
