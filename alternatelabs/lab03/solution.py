@@ -52,7 +52,7 @@ while not game_over:
         print('Well done you won!')
         print(f'You took {count_number_of_tries} goes to complete the game')
     else:
-        print("Sorry - you loose")
+        print("Sorry - you lose")
         print(f'The number you needed to guess was {number_to_guess}')
 
     input_not_accepted = True
