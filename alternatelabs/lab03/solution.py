@@ -19,53 +19,46 @@ while not game_over:
     # Start the game
     print('Welcome to the number guess game')
 
-    # Obtain their initialise guess
+    # Obtain their initial guess
     number_not_guessed = True
-    while number_not_guessed:
+    while number_not_guessed and count_number_of_tries < MAX_NUMBER_OF_GUESSES:
         guess = int(input(GUESS_PROMPT))
 
-        # Check to see they have not exceeded the maximum
-        # number of attempts if so break out of loop otherwise
-        # give the user come feedback
+        # Check if the user requested to reveal the number
         if guess == -1:
             print(f'The number to guess is {number_to_guess}')
             continue
-        elif number_to_guess != guess:
-            number_not_guessed = False
-        elif guess + 1 == number_to_guess or guess - 1 == number_to_guess:
-            print('Sorry wrong number - you were out by 1')
-        elif guess < number_to_guess:
-            print('Sorry wrong number')
-            print('Your guess was lower than the number')
-        elif guess > number_to_guess:
-            print('Sorry wrong number')
-            print('Your guess was higher than the number')
 
-        # Obtain their next guess and increment number of attempts
+        # Increment the attempt counter
         count_number_of_tries += 1
 
-        if count_number_of_tries == MAX_NUMBER_OF_GUESSES:
-            break
+        # Check the guess and provide feedback
+        if guess == number_to_guess:
+            print('Well done, you won!')
+            print(f'You took {count_number_of_tries} guesses to complete the game')
+            number_not_guessed = False  # Exit the inner loop
+        elif abs(guess - number_to_guess) == 1:
+            print('Sorry, wrong number - you were out by 1')
+        elif guess < number_to_guess:
+            print('Sorry, wrong number. Your guess was lower than the number.')
+        elif guess > number_to_guess:
+            print('Sorry, wrong number. Your guess was higher than the number.')
 
-    # Check to see if they did guess the correct number
-    if number_to_guess == guess:
-        print('Well done you won!')
-        print(f'You took {count_number_of_tries} goes to complete the game')
-    else:
+    # If the player runs out of guesses
+    if number_not_guessed:
         print("Sorry - you lose")
         print(f'The number you needed to guess was {number_to_guess}')
 
+    # Ask if the player wants to play again
     input_not_accepted = True
     while input_not_accepted:
-        play_again = input("Do you want to play again (y/n) or (yes/no)? ")
-        play_again = play_again.lower()
-        if play_again == 'n' or play_again == 'no':
+        play_again = input("Do you want to play again (y/n) or (yes/no)? ").lower()
+        if play_again in ('n', 'no'):
             game_over = True
             input_not_accepted = False
-        elif play_again == 'y' or play_again == 'yes':
+        elif play_again in ('y', 'yes'):
             input_not_accepted = False
         else:
-            print('Invalid input must be y/n or yes/no')
-
+            print('Invalid input. Must be y/n or yes/no.')
 
 print('Game Over')
