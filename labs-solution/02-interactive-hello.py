@@ -10,11 +10,7 @@ value = input1 + input2
 
 print(f'The result of {input1} + {input2} is {value}')
 
-print(fuser = None
-print('user:', user)
-print('user is None:', user is None)
-print('user is not None:', user is not None)
-print('The type of the user:', type(user))'The type of the value is {type(value)}')
+print(f'The type of the value is {type(value)}')
 
 input_string1 = input('Please enter a string: ')
 input_string2 = input('Please enter another string: ')
