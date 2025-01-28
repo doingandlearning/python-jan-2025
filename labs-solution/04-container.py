@@ -1,5 +1,6 @@
 readings = []
 continue_to_enter_data = True
+
 while continue_to_enter_data:
     input_string = input('Please enter a temperature reading (-1 to end): ')
     if input_string == '-1':

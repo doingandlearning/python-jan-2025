@@ -7,7 +7,7 @@
 - Exception Handling
 - Renaming and Deleting files
 - Working with CSV Files
-
+- Working with JSON 
 ---
 
 ## Obtaining a Reference to a File
