@@ -24,15 +24,9 @@ print(sum())
 
 def calculate(operation, *nums):  # ...
     if operation == "add":
-        total = 0
-        for num in nums:
-            total += num
-        return total
+        return sum(*nums)
     elif operation == "multiply":
-        result = 1
-        for num in nums:
-            result *= num
-        return result
+        return product(*nums)
     else:
         print("Unhandled operation")
         return None
@@ -40,3 +34,4 @@ def calculate(operation, *nums):  # ...
 print(calculate( "add", 1,2,3,4,5))
 print(calculate("multiply", 2,3,4,5,6,7))
 
+print(*[1,2,3,4])

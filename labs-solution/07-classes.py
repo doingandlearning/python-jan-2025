@@ -31,6 +31,9 @@ class TemperatureReading:
             raise ValueError("Unknown temperature scale")
 
 
+
+
+
 def celsius_to_fahrenheit(celsius):
     return (celsius * 9 / 5) + 32
 
@@ -99,3 +102,8 @@ temp1 = TemperatureReading(13.5, '01/05/20', 'London', CELSIUS)
 temp2 = temp1.convert()
 print(f'temp1: {temp1}')
 print(f'temp2: {temp2}')
+
+temp1.convert()
+
+def convert():
+    pass

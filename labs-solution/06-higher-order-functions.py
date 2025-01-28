@@ -60,3 +60,6 @@ print(f'Temperatures above 14.0: {higher_temperatures}')
 # Step 3: Convert All the Temperatures Above 14.0 to Fahrenheit
 converted_temperatures = list(map(celsius_to_fahrenheit, higher_temperatures))
 print(f'Fahrenheit Temperatures above 14.0°C: {converted_temperatures}')
+
+print(list(map(celsius_to_fahrenheit, filter(lambda x: x > 14.0,  readings))))
+

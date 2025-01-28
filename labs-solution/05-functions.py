@@ -1,6 +1,6 @@
 # Initialize list for temperature readings
 readings = [13.5, 11.1, 17.5, 12.6, 15.3, 12.2, 16.6, 14.6]
-continue_to_enter_data = True
+continue_to_enter_data = False
 
 # Collect temperature readings from user input
 while continue_to_enter_data:
