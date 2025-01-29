@@ -6,7 +6,7 @@
   - [My website](https://kevincunningham.co.uk)
 - [Repo link](https://github.com/doingandlearning/python-jan-2025)
 - [Miro link](https://miro.com/app/board/uXjVLoEX_4s=/?share_link_id=272826220300)
-- [Feedback link]()
+- [Feedback link](https://forms.microsoft.com/pages/responsepage.aspx?id=e_W03kuia0Of7lReNqN5xmk5rXZ1BDVDojjME-DIjrdURUxLSTRaT0lHWkZTVEpYNEpFMzBRRUxOVSQlQCN0PWcu&route=shorturl)
 
 ## Timings:
 

@@ -1,8 +1,4 @@
-class InvalidAgeException(Exception):
-    def __init__(self, message, error_code = "BBC_ERR_CODE"):
-        super().__init__(message)
-        self.error_code = error_code
-
+from bbc_errors import InvalidAgeException
 
 class Person:
     def __init__(self):
