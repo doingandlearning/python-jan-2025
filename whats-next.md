@@ -60,10 +60,59 @@ Again, there's a Real Python tutorial to start you off here, https://realpython.
    - AWS offers training paths for various roles, including Developer, Solutions Architect, and Machine Learning Engineer. These paths can be valuable for deepening your AWS skills.
    - [AWS Training and Certification](https://aws.amazon.com/training/)
 
-## Matplotlib and Pandas
+## **Matplotlib and Pandas**
 
+### **Books and Learning Resources**
+1. **Mastering Matplotlib** by Duncan M. McGreggor  
+   - Advanced guide covering **custom plots, animations, and interactive visualizations**.  
+   - Ideal for those looking to deeply customize Matplotlib figures.
 
-## Django
+2. **Matplotlib Plotting Cookbook** by Alexandre Devert  
+   - Hands-on **recipes for different types of plots**, from basic charts to complex visualizations.  
+   - Great for users who prefer a practical, task-based approach.
+
+3. **Matplotlib for Python Developers** by Sandro Tosi  
+   - Covers **Matplotlib usage in real-world applications**, including GUI frameworks like Tkinter and Qt.
+
+4. **Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Jupyter** by Wes McKinney  
+   - The **go-to book for Pandas**, written by its creator. Covers **data manipulation, aggregation, and visualization**.  
+   - Includes practical examples for **cleaning, transforming, and analyzing datasets**.
+
+5. **Effective Pandas** by Matt Harrison  
+   - Focuses on writing **efficient and idiomatic Pandas code**.  
+   - Emphasizes best practices for working with large datasets.
+
+### **Online Courses & Documentation**
+- **Matplotlib Official Documentation**: [matplotlib.org/stable/tutorials](https://matplotlib.org/stable/tutorials/index.html)  
+- **Pandas User Guide**: [pandas.pydata.org/docs](https://pandas.pydata.org/docs/)  
+- **Data Analysis with Pandas and Matplotlib (YouTube Series)** – A hands-on introduction to **visualizing datasets** using both libraries.  
+
+---
+
+## **Django**
+
+### **Books and Learning Resources**
+1. **Django for Beginners** by William S. Vincent  
+   - A **step-by-step guide** to building a Django project from scratch.  
+   - Covers **models, views, templates, and authentication**.
+
+2. **Django 4 By Example** by Antonio Mele  
+   - Focuses on **building real-world applications** with Django.  
+   - Includes **e-commerce, authentication, REST APIs, and deployment**.
+
+3. **Two Scoops of Django: Best Practices for Django 3.x** by Audrey & Daniel Roy Greenfeld  
+   - Covers **best practices, performance optimization, and maintainability**.  
+   - Recommended for developers who want to **scale Django projects efficiently**.
+
+4. **Django Design Patterns and Best Practices** by Arun Ravindran  
+   - Helps developers **structure and organize Django projects efficiently**.  
+   - Covers **class-based views, reusable apps, and database optimization**.
+
+### **Online Courses & Documentation**
+- **Django Official Documentation**: [docs.djangoproject.com](https://docs.djangoproject.com/en/stable/)  
+- **Django for Everybody (University of Michigan, Coursera)** – Free introduction to Django for web development.  
+- **Test-Driven Development with Django (TestDriven.io)** – Learn how to write tests while building Django apps.  
+- **Full Stack Django with React (YouTube Series)** – A project-based course integrating Django with a modern frontend.
 
 
 ## 🎯 Suggested Next Steps
