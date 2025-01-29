@@ -1,176 +1,190 @@
-# **Lab: Working with Files, CSV, and JSON in Python**
-**Objective:**  
-By the end of this lab, you'll be able to:
-1. Read, write, and append to text files.
-2. Read and write CSV files using `csv.reader` and `csv.DictReader`.
-3. Read, write, and append to JSON files.
+# **Case Study: Converting JSON Data to CSV**  
+
+## **Scenario**  
+
+You work for a team that receives **JSON data** from various sources. A client has provided a JSON file containing user data, and they need it converted into a structured CSV format for easier analysis in spreadsheet tools.  
+
+Your job is to:  
+✅ Read the JSON data from a file  
+✅ Extract relevant fields  
+✅ Convert the JSON data into a well-formatted CSV file  
+✅ Append new data to both JSON and CSV files  
 
 ---
 
-## **📌 Part 1: Reading, Writing, and Appending to Text Files**
-### **Task 1: Write to a text file**
-- Create a file named `notes.txt` and write three lines of text.
+## **📌 Step 1: Understanding the JSON Data**  
 
-```python
-filename = "notes.txt"
+The client has provided a file named **`users.json`**, which contains the following data:  
 
-# Writing to a text file
-with open(filename, "w") as file:
-    file.write("This is the first line.\n")
-    file.write("Python is great for file handling.\n")
-    file.write("Let's learn how to work with files!\n")
-
-print(f"{filename} created successfully!")
-```
-
-### **Task 2: Read from the text file**
-- Open `notes.txt` and print its contents.
-
-```python
-# Reading from a text file
-with open(filename, "r") as file:
-    content = file.read()
-
-print("File Contents:\n", content)
-```
-
-### **Task 3: Append to the text file**
-- Add two more lines to `notes.txt`.
-
-```python
-# Appending to a text file
-with open(filename, "a") as file:
-    file.write("Appending a new line.\n")
-    file.write("File handling in Python is easy!\n")
-
-print("Lines appended successfully!")
-```
-
----
-
-## **📌 Part 2: Working with CSV Files**
-### **Task 4: Writing CSV using `csv.writer`**
-- Create a file named `data.csv` with columns: `name, age, city`.
-
-```python
-import csv
-
-csv_filename = "data.csv"
-
-# Data to write
-data = [
-    ["Alice", 30, "London"],
-    ["Bob", 25, "New York"],
-    ["Charlie", 35, "Paris"]
+```json
+[
+    {"id": 1, "name": "Alice", "email": "alice@example.com", "age": 30, "city": "London"},
+    {"id": 2, "name": "Bob", "email": "bob@example.com", "age": 25, "city": "New York"},
+    {"id": 3, "name": "Charlie", "email": "charlie@example.com", "age": 35, "city": "Paris"}
 ]
-
-# Writing to a CSV file using csv.writer
-with open(csv_filename, "w", newline="") as file:
-    writer = csv.writer(file)
-    writer.writerow(["name", "age", "city"])  # Header row
-    writer.writerows(data)  # Writing multiple rows
-
-print(f"{csv_filename} created successfully!")
 ```
 
-### **Task 5: Reading CSV using `csv.reader`**
-- Open `data.csv` and read the contents.
-
-```python
-# Reading CSV using csv.reader
-with open(csv_filename, "r") as file:
-    reader = csv.reader(file)
-    for row in reader:
-        print(row)
-```
-
-### **Task 6: Writing CSV using `csv.DictWriter`**
-- Create a file named `data_dict.csv` using `csv.DictWriter`.
-
-```python
-dict_csv_filename = "data_dict.csv"
-
-data_dict = [
-    {"name": "Alice", "age": 30, "city": "London"},
-    {"name": "Bob", "age": 25, "city": "New York"},
-    {"name": "Charlie", "age": 35, "city": "Paris"}
-]
-
-# Writing to CSV using DictWriter
-with open(dict_csv_filename, "w", newline="") as file:
-    fieldnames = ["name", "age", "city"]
-    writer = csv.DictWriter(file, fieldnames=fieldnames)
-    writer.writeheader()
-    writer.writerows(data_dict)
-
-print(f"{dict_csv_filename} created successfully!")
-```
-
-### **Task 7: Reading CSV using `csv.DictReader`**
-- Open `data_dict.csv` using `csv.DictReader`.
-
-```python
-# Reading CSV using DictReader
-with open(dict_csv_filename, "r") as file:
-    reader = csv.DictReader(file)
-    for row in reader:
-        print(row)
-```
+The client wants a **CSV file** containing only **name, email, and city**.
 
 ---
 
-## **📌 Part 3: Working with JSON Files**
-### **Task 8: Writing JSON Data**
-- Create a JSON file `data.json` containing the same information as `data_dict.csv`.
+## **📌 Step 2: Read the JSON File**  
+
+Your first task is to **load the JSON data into Python**.
 
 ```python
 import json
 
-json_filename = "data.json"
+# Read the JSON file
+json_filename = "users.json"
 
-# Writing to JSON
-with open(json_filename, "w") as file:
-    json.dump(data_dict, file, indent=4)
+with open(json_filename, "r") as file:
+    users = json.load(file)
 
-print(f"{json_filename} created successfully!")
+# Print data for verification
+print("Loaded JSON Data:", users)
 ```
 
-### **Task 9: Reading JSON Data**
-- Read `data.json` and print its contents.
+✔️ **Check:** The data should now be stored in a Python list of dictionaries.
+
+---
+
+## **📌 Step 3: Convert JSON to CSV**  
+
+Now, extract **name, email, and city** and save it as a CSV file named **`users.csv`**.
 
 ```python
-# Reading JSON
-with open(json_filename, "r") as file:
-    json_data = json.load(file)
+import csv
 
-print("JSON Data:", json_data)
+csv_filename = "users.csv"
+
+# Open CSV file for writing
+with open(csv_filename, "w", newline="") as file:
+    fieldnames = ["name", "email", "city"]
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+    writer.writeheader()  # Write column headers
+
+    # Write only the required fields
+    for user in users:
+        writer.writerow({
+            "name": user["name"],
+            "email": user["email"],
+            "city": user["city"]
+        })
+
+print(f"CSV file '{csv_filename}' created successfully!")
 ```
 
-### **Task 10: Appending Data to JSON**
-- Append a new record to `data.json`.
+✔️ **Check:** Open `users.csv` to verify the output. It should look like:
 
-```python
-# New data to append
-new_person = {"name": "David", "age": 40, "city": "Berlin"}
-
-# Read existing data
-with open(json_filename, "r") as file:
-    existing_data = json.load(file)
-
-# Modify data
-existing_data.append(new_person)
-
-# Write back updated JSON
-with open(json_filename, "w") as file:
-    json.dump(existing_data, file, indent=4)
-
-print("New data appended to JSON!")
+```
+name,email,city
+Alice,alice@example.com,London
+Bob,bob@example.com,New York
+Charlie,charlie@example.com,Paris
 ```
 
 ---
 
-## **🛠 Challenges**
-🔹 Modify `notes.txt` to remove all lines that contain "Python".  
-🔹 Modify `data.csv` to replace all occurrences of `"Bob"` with `"Robert"`.  
-🔹 Convert `data.json` to a dictionary where names are keys and store the records inside.
+## **📌 Step 4: Append a New User to JSON and CSV**  
 
+The client has provided a **new user** to be added to both `users.json` and `users.csv`:
+
+```json
+{"id": 4, "name": "David", "email": "david@example.com", "age": 40, "city": "Berlin"}
+```
+
+### **4.1 Append New Data to JSON File**  
+
+```python
+# New user data
+new_user = {"id": 4, "name": "David", "email": "david@example.com", "age": 40, "city": "Berlin"}
+
+# Read existing JSON data
+with open(json_filename, "r") as file:
+    existing_users = json.load(file)
+
+# Append new user
+existing_users.append(new_user)
+
+# Write back to JSON
+with open(json_filename, "w") as file:
+    json.dump(existing_users, file, indent=4)
+
+print("New user added to JSON file.")
+```
+
+✔️ **Check:** Open `users.json` to verify the new entry.
+
+---
+
+### **4.2 Append New Data to CSV File**  
+
+```python
+# Append new user to CSV
+with open(csv_filename, "a", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "email", "city"])
+    writer.writerow({
+        "name": new_user["name"],
+        "email": new_user["email"],
+        "city": new_user["city"]
+    })
+
+print("New user added to CSV file.")
+```
+
+✔️ **Check:** Open `users.csv`, and it should now include:
+
+```
+name,email,city
+Alice,alice@example.com,London
+Bob,bob@example.com,New York
+Charlie,charlie@example.com,Paris
+David,david@example.com,Berlin
+```
+
+---
+
+## **📌 Step 5: Bonus - Read CSV Back into JSON Format**
+If the client later asks for the **CSV data back in JSON format**, we can **convert it back**.
+
+```python
+# Read CSV and convert back to JSON
+csv_data = []
+
+with open(csv_filename, "r") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        csv_data.append(row)
+
+# Save back to a new JSON file
+with open("converted.json", "w") as file:
+    json.dump(csv_data, file, indent=4)
+
+print("CSV converted back to JSON!")
+```
+
+---
+
+## **✅ Summary**
+| **Task**                 | **Method Used** |
+|--------------------------|----------------|
+| Read JSON file           | `json.load()` |
+| Write JSON file          | `json.dump()` |
+| Read CSV file            | `csv.DictReader()` |
+| Write CSV file           | `csv.DictWriter()` |
+| Append to JSON file      | `json.load() → modify → json.dump()` |
+| Append to CSV file       | `csv.DictWriter(file, mode="a")` |
+
+---
+
+## **📌 Challenges**
+1️⃣ Modify the script to include the **age** field in the CSV file.  
+2️⃣ Remove all users under 30 before writing the CSV file.  
+3️⃣ Convert **CSV data back to JSON** but format it as a dictionary with `email` as the key.  
+4️⃣ Implement error handling:  
+   - Prevent **duplicate users** when appending.  
+   - Handle missing fields gracefully.  
+
+-
