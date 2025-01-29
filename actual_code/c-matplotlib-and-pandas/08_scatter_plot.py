@@ -9,7 +9,7 @@ sailing = ((31, 28, 29, 36, 27, 32, 34, 35, 33, 39),
            (4, 6.3, 6, 3, 5, 7.5, 2, 5, 7, 4))
 
 # Plot the data
-pyplot.scatter(x=riding[0], y=riding[1], c='red', marker='o', label='riding')
+pyplot.scatter(x=riding[0], y=riding[1], c='aliceblue', marker='o', label='riding')
 pyplot.scatter(x=swimming[0], y=swimming[1], c='green', marker='^', label='swimming')
 pyplot.scatter(x=sailing[0], y=sailing[1], c='blue', marker='*', label='sailing')
 

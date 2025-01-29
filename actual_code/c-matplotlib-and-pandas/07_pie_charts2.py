@@ -4,7 +4,7 @@ labels = ('Python', 'Java', 'Scala', 'C#')
 sizes = [45, 30, 15, 10]
 
 # only "explode" the 1st slice (i.e. 'Python')
-explode = (0.1, 0, 0, 0)
+explode = (0.1, 0, 0.5, 0)
 
 pyplot.pie(sizes,
            explode=explode,

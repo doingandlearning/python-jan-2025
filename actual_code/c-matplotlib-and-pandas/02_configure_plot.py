@@ -8,7 +8,14 @@ plt.xlabel('x values', fontsize=12)
 
 plt.title("Sample Graph Using MatPlotLib")
 
-plt.plot(x,y, linewidth=2.0, label="samples", marker="o", color="blue", linestyle="--")
+plt.plot(x,
+         y,
+         linewidth=4.0,
+         label="samples",
+         marker="x",
+         color="blue",
+         linestyle="--"
+         )
 
 plt.grid()
 
