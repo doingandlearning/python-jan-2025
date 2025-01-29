@@ -41,10 +41,19 @@ def setup_function():
 def teardown_function():
     print("After each test")
 
-def test_quantities_with_equal_values_are_equal():
+@pytest.mark.parametrize(
+    "a", [
+        (1),
+        (-1),
+        (0),
+        (0.1),
+        (-1000000)
+    ]
+)
+def test_quantities_with_equal_values_are_equal(a):
     # Arrange (Given)
-    q1 = Quantity(10)
-    q2 = Quantity(10)
+    q1 = Quantity(a)
+    q2 = Quantity(a)
 
     # Act (when)/Assert (then)
     assert q1 == q2
